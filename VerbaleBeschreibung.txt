@@ -1,6 +1,9 @@
-Hier kommt eine verbale Beschreibung 
+Es wird ein Schreibtrainer programmiert. 
+Dieser soll folgende Funktionalität aufweisen:
+Trainings und Testmodus 
+Schreiben der Testergebnisse in eine SQL-Datenbank auf einem Server im LAN 
+Stellen von verschiedenen Vorlagen zum abschreiben
+wpm count 
 
-Wir machen einen Schreibtrainer der in der Lage ist, die Tippgeschwindigkeit und
-die Präzision des Testers zu analysieren. Die Texte werden von einer Datenbank
-ausgelesen.
+
 

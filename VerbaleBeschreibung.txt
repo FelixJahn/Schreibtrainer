@@ -1,0 +1,6 @@
+Hier kommt eine verbale Beschreibung 
+
+Wir machen einen Schreibtrainer der in der Lage ist, die Tippgeschwindigkeit und
+die Präzision des Testers zu analysieren. Die Texte werden von einer Datenbank
+ausgelesen.
+

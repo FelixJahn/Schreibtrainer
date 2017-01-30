@@ -20,6 +20,7 @@ namespace Application_Schreibtrainer
     /// </summary>
     public partial class MainWindow : Window
     {
+        public string megouuu { get; set; }
         public MainWindow()
         {
             InitializeComponent();

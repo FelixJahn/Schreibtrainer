@@ -2,4 +2,4 @@
 ***********Hier wird die Arbeit in den************
 *************SEW-Stunden angegeben****************
 **************************************************
- 20.02.17 -
+ 20.02.17 - Ansätze für die GUI überlegt. Skizze erstellt. Arbeit teilweise aufgeteilt. -S

@@ -1,0 +1,6 @@
+Klasse Datenbankverbindung erbt von mysqlconnection, daten zur Verbindung
+(Server IP, User ID, Datenbank) sowie die Schülerspezifischen Daten werden
+ übergeben und in properties gespeichert.
+
+Klasse Multitimer erbt von Timer, bekommt countdown label und startwert übergeben. macht 
+den countdown und die Hochrechnung der wpm automatisch.

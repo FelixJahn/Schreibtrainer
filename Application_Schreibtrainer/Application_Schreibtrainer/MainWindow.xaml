@@ -5,8 +5,34 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Application_Schreibtrainer"
         mc:Ignorable="d"
-        Title="Schreibtrainer" Height="350" Width="525">
+        Title="Schreibtrainer" Height="552.146" Width="772.741">
     <Grid>
-        
+        <TextBox x:Name="textBoxVorlage" HorizontalAlignment="Left" Height="95" Margin="56,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="578"/>
+        <TextBox x:Name="textBoxInput" HorizontalAlignment="Left" Height="23" Margin="56,121,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="578"/>
+
+        <ListBox x:Name="listBoxDaten" HorizontalAlignment="Left" Height="216" VerticalAlignment="Top" Width="100" Margin="656,10,0,0"/>
+        <Button x:Name="buttonRefresh" Content="Refresh" HorizontalAlignment="Left" Margin="559,156,0,0" VerticalAlignment="Top" Width="75" Height="39"/>
+        <Button x:Name="buttonLabelTime" Content="Label time" HorizontalAlignment="Left" Margin="55,156,0,0" VerticalAlignment="Top" Width="95" Height="39"/>
+        <CheckBox x:Name="checkBoxTestMode" Content="Test mode" HorizontalAlignment="Left" Margin="310,156,0,0" VerticalAlignment="Top" Height="24"/>
+        <RadioButton x:Name="radioButtonText1" Content="Text 1" HorizontalAlignment="Left" Margin="56,245,0,0" VerticalAlignment="Top" Width="51"/>
+        <RadioButton x:Name="radioButtonCode" Content="Code" HorizontalAlignment="Left" Margin="397,245,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="radioButtonText3" Content="Text 3" HorizontalAlignment="Left" Margin="293,245,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="radioButtonText2" Content="Text 2" HorizontalAlignment="Left" Margin="172,245,0,0" VerticalAlignment="Top"/>
+
+        <Label x:Name="label_Copy5" Content="Vorlage:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="76" Margin="56,200,0,0"/>
+        <Grid HorizontalAlignment="Left" Height="126" Margin="51,305,0,0" VerticalAlignment="Top" Width="705" IsHitTestVisible="True" Background="#FFA69F9F"/>
+        <TextBox x:Name="textBoxKlasse" HorizontalAlignment="Left" Height="23" Margin="620,330,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="119"/>
+        <TextBox x:Name="textBoxName" HorizontalAlignment="Left" Height="23" Margin="354,384,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="119" RenderTransformOrigin="0.467,0.107"/>
+        <TextBox x:Name="textBoxDB" HorizontalAlignment="Left" Height="23" Margin="155,386,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="119"/>
+        <TextBox x:Name="textBoxUID" HorizontalAlignment="Left" Height="23" Margin="354,331,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="119"/>
+        <TextBox x:Name="textBoxSIP" HorizontalAlignment="Left" Height="23" Margin="155,331,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="119"/>
+        <TextBox x:Name="textBoxKatalogNR" HorizontalAlignment="Left" Height="23" Margin="620,382,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="119"/>
+        <Label x:Name="label" Content="Server IP:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="75,331,0,0"/>
+        <Label x:Name="label_Copy" Content="UID:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Margin="310,327,0,0"/>
+        <Label x:Name="label_Copy1" Content="Database:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="75,384,0,0"/>
+        <Label x:Name="label_Copy2" Content="Name:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="58" Margin="310,383,0,0"/>
+        <Label x:Name="label_Copy3" Content="Katalog NR:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="499,381,0,0"/>
+        <Label x:Name="label_Copy4" Content="Klasse:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="499,331,0,0"/>
+
     </Grid>
 </Window>

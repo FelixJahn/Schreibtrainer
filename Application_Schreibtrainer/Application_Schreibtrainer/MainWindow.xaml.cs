@@ -25,5 +25,10 @@ namespace Application_Schreibtrainer
         {
             InitializeComponent();
         }
+
+        private void buttonRefresh_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

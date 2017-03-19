@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using MySql.Data.MySqlClient;
 
 namespace Application_Schreibtrainer
 {
@@ -28,7 +29,9 @@ namespace Application_Schreibtrainer
 
         private void buttonRefresh_Click(object sender, RoutedEventArgs e)
         {
-
+         
+            Datenbankverbindung d1 = new Datenbankverbindung("127.0.0.1","test","root", "");
+            d1.daten("hans", "peter", 4, 10);
         }
     }
 }

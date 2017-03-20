@@ -30,8 +30,13 @@ namespace Application_Schreibtrainer
         private void buttonRefresh_Click(object sender, RoutedEventArgs e)
         {
          
-            Datenbankverbindung d1 = new Datenbankverbindung("127.0.0.1","test","root", "");
-            d1.daten("hans", "peter", 4, 10);
+            
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            Datenbankverbindung d1 = new Datenbankverbindung("127.0.0.1", "test", "root", "");
+            d1.Daten("Patrick", "krebs", 11, 100);
         }
     }
 }

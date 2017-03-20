@@ -19,10 +19,10 @@ namespace Application_Schreibtrainer
         private MySqlConnection conn { get; set; }
         static string connString { get; set; }
 
-        public string vorname { get; set; }
-        public string nachname { get; set; }
-        public int jahresalter { get; set; }
-        public int zeit { get; set; }
+        public string Vorname { get; set; }
+        public string Nachname { get; set; }
+        public int Jahresalter { get; set; }
+        public int Zeit { get; set; }
         //Konstruktor machen der die props einliest und speichert
         //private Methode die einen con string generiert und sich gleich versucht zu verbinden(gleich im konstruktor aufrufen)
         //vererbung machen 
@@ -32,42 +32,52 @@ namespace Application_Schreibtrainer
         public Datenbankverbindung(string serverip, string datenbank, string userid, string passwort)
         {
             ServerIp = serverip;
-            userid = UserID;
-            datenbank = Datenbank;
-            passwort = Passwort;
+            UserID = userid;
+            Datenbank = datenbank;
+            Passwort = passwort;
 
 
             
-            connString = "Server=" + serverip + ";uid=" + userid + ";database=" + datenbank + ";pwd=" + passwort;
+            connString = "Server=" + serverip + ";database=" + datenbank + ";uid=" + userid + ";pwd=" + passwort;
             //"Server:"+serverip + ";uid:" + userid + ";database:" + datenbank + ";pwd:" + passwort;
-
+            
             Verbindung(connString);
         }
-        public void daten(string Vorname, string Nachname, int Jahresalter, int Zeit)
+        public void Daten(string vorname, string nachname, int jahresalter, int zeit)
 
         {
-            vorname = Vorname;
-            nachname = Nachname;
-            jahresalter = Jahresalter;
-            zeit = Zeit;
-            var cmd = new MySqlCommand("Insert into testuser values('"+Vorname+"','"+Nachname+"',"+Jahresalter+","+Zeit, conn);
+            Vorname = vorname;
+            Nachname = nachname;
+            Jahresalter = jahresalter;
+            Zeit = zeit;
+            MySqlConnection conn = new MySqlConnection(connString);
 
-        }
-        private void Verbindung(string ConnString)
-        {
-           
-
-            connString = ConnString;
-
-     
-
-
-            MySqlConnection conn = new MySqlConnection(ConnString);
 
             try
             {
                 conn.Open();
-                daten(vorname, nachname, jahresalter, zeit);
+                var cmd =new MySqlCommand("Insert into testuser values('" + vorname + "','" + nachname + "'," + jahresalter + "," + zeit+")",
+                        conn);
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("stophere");
+
+            }
+            catch
+            {
+                MessageBox.Show("Statement ist falsch");
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+        private void Verbindung(string ConnString)
+        {
+            connString = ConnString;
+            MySqlConnection conn = new MySqlConnection(ConnString);
+            try
+            {
+                conn.Open();
                 MessageBox.Show("Es funkt");
             }
             catch

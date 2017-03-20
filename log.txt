@@ -7,3 +7,18 @@
  13.03.17 - GUI umgesetzt. Klassen ohne Implementierte Funktionen geschrieben. Arbeit bis zur nächsten Stunde aufgeteilt -F
  20.03.17 - Vormittag- Arbeit begutachtet + Einteilung für die Nachmittags-Doppelstunde -F
  20.03.17 - Nachmittag-
+
+
+
+
+
+
+
+
+****************************************
+************Notizen*********************
+****************************************
+- MySqlConnection dll ins projekt implementieren (wurzer fragen, offenbar git problem)
+- Multitimer beginnen zu implementieren
+- insert fixen 
+- Finale DB erstellen und exportieren 

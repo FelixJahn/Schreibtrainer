@@ -35,9 +35,6 @@ namespace Application_Schreibtrainer
             userid = UserID;
             datenbank = Datenbank;
             passwort = Passwort;
-
-
-            
             connString = "Server=" + serverip + ";uid=" + userid + ";database=" + datenbank + ";pwd=" + passwort;
             //"Server:"+serverip + ";uid:" + userid + ";database:" + datenbank + ";pwd:" + passwort;
 

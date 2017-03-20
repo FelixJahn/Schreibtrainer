@@ -6,7 +6,7 @@
  06.03.17 - Klassenaufteilung gemacht, Klassendiagramm erstellt -F
  13.03.17 - GUI umgesetzt. Klassen ohne Implementierte Funktionen geschrieben. Arbeit bis zur nächsten Stunde aufgeteilt -F
  20.03.17 - Vormittag- Arbeit begutachtet + Einteilung für die Nachmittags-Doppelstunde -F
- 20.03.17 - Nachmittag-
+ 20.03.17 - Nachmittag- Begonnen den Multitimer zu implementieren, Insert-Error gefixed -F
 
 
 

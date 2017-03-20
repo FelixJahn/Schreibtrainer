@@ -32,6 +32,7 @@ namespace Application_Schreibtrainer
         public Datenbankverbindung(string serverip, string datenbank, string userid, string passwort)
         {
             ServerIp = serverip;
+<<<<<<< HEAD
             UserID = userid;
             Datenbank = datenbank;
             Passwort = passwort;
@@ -39,6 +40,12 @@ namespace Application_Schreibtrainer
 
             
             connString = "Server=" + serverip + ";database=" + datenbank + ";uid=" + userid + ";pwd=" + passwort;
+=======
+            userid = UserID;
+            datenbank = Datenbank;
+            passwort = Passwort;
+            connString = "Server=" + serverip + ";uid=" + userid + ";database=" + datenbank + ";pwd=" + passwort;
+>>>>>>> 6080b6f95d51b79bf156f84a0bc35c9626cad8e7
             //"Server:"+serverip + ";uid:" + userid + ";database:" + datenbank + ";pwd:" + passwort;
             
             Verbindung(connString);

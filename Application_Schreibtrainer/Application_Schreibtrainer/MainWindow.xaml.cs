@@ -41,5 +41,9 @@ namespace Application_Schreibtrainer
 
             d2.Daten(textBoxName.Text,  textBoxKlasse.Text, Convert.ToInt32(textBoxKatalogNR.Text));
         }
+        private List<string> toStringList(string s)
+        {
+            return new List<string>();
+        }
     }
 }

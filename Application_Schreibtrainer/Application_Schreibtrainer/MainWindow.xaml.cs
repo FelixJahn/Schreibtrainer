@@ -43,7 +43,7 @@ namespace Application_Schreibtrainer
         }
         private List<string> toStringList(string s)
         {
-            return s.Split().ToList<string>();
+            return s.Split(' ').ToList<string>();
 
         }
     }

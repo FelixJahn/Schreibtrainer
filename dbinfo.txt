@@ -1,0 +1,7 @@
+INFORMATION DB
+DB-NAME: schreibtrainer 
+TABLE-NAME: data
+Name: name
+Klasse: klasse
+Katalognummer: ktlgnr
+Zeit: zeit

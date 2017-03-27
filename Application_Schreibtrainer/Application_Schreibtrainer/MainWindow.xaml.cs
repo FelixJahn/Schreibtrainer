@@ -21,7 +21,7 @@ namespace Application_Schreibtrainer
     /// </summary>
     public partial class MainWindow : Window
     {
-        public string megouuu { get; set; }
+        
         public MainWindow()
         {
             InitializeComponent();
@@ -29,14 +29,17 @@ namespace Application_Schreibtrainer
 
         private void buttonRefresh_Click(object sender, RoutedEventArgs e)
         {
-         
-            
+            //Datenbankverbindung d1 = new Datenbankverbindung("127.0.0.1", "test", "root", "");
+            //d1.Daten("Patrick", "krebs", 11, 100);
+            Datenbankverbindung d2 = new Datenbankverbindung(textBoxSIP.Text, textBoxDB.Text, textBoxUID.Text, "");
+
+            d2.Daten(textBoxName.Text, textBoxKlasse.Text, Convert.ToInt32(textBoxKatalogNR.Text));
+
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            Datenbankverbindung d1 = new Datenbankverbindung("127.0.0.1", "test", "root", "");
-            d1.Daten("Patrick", "krebs", 11, 100);
+            
         }
         private List<string> toStringList(string s)
         {

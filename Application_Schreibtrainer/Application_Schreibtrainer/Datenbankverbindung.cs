@@ -20,9 +20,9 @@ namespace Application_Schreibtrainer
         static string connString { get; set; }
 
         public string Vorname { get; set; }
-        public string Nachname { get; set; }
-        public int Jahresalter { get; set; }
-        public int Zeit { get; set; }
+        public string Klasse { get; set; }
+        public int Katalognummer { get; set; }
+        
         //Konstruktor machen der die props einliest und speichert
         //private Methode die einen con string generiert und sich gleich versucht zu verbinden(gleich im konstruktor aufrufen)
         //vererbung machen 
@@ -32,7 +32,7 @@ namespace Application_Schreibtrainer
         public Datenbankverbindung(string serverip, string datenbank, string userid, string passwort)
         {
             ServerIp = serverip;
-<<<<<<< HEAD
+
             UserID = userid;
             Datenbank = datenbank;
             Passwort = passwort;
@@ -40,31 +40,32 @@ namespace Application_Schreibtrainer
 
             
             connString = "Server=" + serverip + ";database=" + datenbank + ";uid=" + userid + ";pwd=" + passwort;
-=======
+
             userid = UserID;
             datenbank = Datenbank;
             passwort = Passwort;
             connString = "Server=" + serverip + ";uid=" + userid + ";database=" + datenbank + ";pwd=" + passwort;
->>>>>>> 6080b6f95d51b79bf156f84a0bc35c9626cad8e7
             //"Server:"+serverip + ";uid:" + userid + ";database:" + datenbank + ";pwd:" + passwort;
             
             Verbindung(connString);
         }
-        public void Daten(string vorname, string nachname, int jahresalter, int zeit)
+        public void Daten(string vorname, string klasse, int katalognummer)
 
         {
             Vorname = vorname;
-            Nachname = nachname;
-            Jahresalter = jahresalter;
-            Zeit = zeit;
+            Klasse = klasse;
+            Katalognummer = katalognummer;
             MySqlConnection conn = new MySqlConnection(connString);
 
 
             try
             {
                 conn.Open();
-                var cmd =new MySqlCommand("Insert into testuser values('" + vorname + "','" + nachname + "'," + jahresalter + "," + zeit+")",
-                        conn);
+                var cmd =new MySqlCommand("Insert into testuser values('name=@name, klasse=@klasse, katalognummer=@katalognummer')", conn);
+
+                cmd.Parameters.AddWithValue("@name", vorname);
+                cmd.Parameters.AddWithValue("@klasse", klasse);
+                cmd.Parameters.AddWithValue("@katalognummer", katalognummer);
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("stophere");
 
@@ -89,7 +90,7 @@ namespace Application_Schreibtrainer
             }
             catch
             {
-                throw new Exception("Funktioniert nicht");
+                    throw new Exception("Funktioniert nicht");
             }
         }
     }

@@ -22,6 +22,8 @@ namespace Application_Schreibtrainer
         public string Vorname { get; set; }
         public string Klasse { get; set; }
         public int Katalognummer { get; set; }
+
+        public float Zeit { get; set; }
         
         //Konstruktor machen der die props einliest und speichert
         //private Methode die einen con string generiert und sich gleich versucht zu verbinden(gleich im konstruktor aufrufen)
@@ -53,20 +55,23 @@ namespace Application_Schreibtrainer
             
             Verbindung(connString);
         }
-        public void Daten(string vorname, string klasse, int katalognummer)
+        public void Daten(string vorname, string klasse, int katalognummer, float zeit)
 
         {
             Vorname = vorname;
             Klasse = klasse;
             Katalognummer = katalognummer;
+            Zeit = zeit;
             MySqlConnection conn = new MySqlConnection(connString);
 
 
             try
             {
                 conn.Open();
-                var cmd =new MySqlCommand("Insert into testuser values('name=@name, klasse=@klasse, katalognummer=@katalognummer')", conn);
+                var cmd =new MySqlCommand("Insert into testuser values('name=@name, klasse=@klasse, katalognummer=@katalognummer, zeit=@zeit')", conn);
 
+
+                cmd.Parameters.AddWithValue("@zeit", zeit);
                 cmd.Parameters.AddWithValue("@name", vorname);
                 cmd.Parameters.AddWithValue("@klasse", klasse);
                 cmd.Parameters.AddWithValue("@katalognummer", katalognummer);

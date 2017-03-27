@@ -7,15 +7,15 @@
  13.03.17 - GUI umgesetzt. Klassen ohne Implementierte Funktionen geschrieben. Arbeit bis zur nächsten Stunde aufgeteilt -F
  20.03.17 - Vormittag- Arbeit begutachtet + Einteilung für die Nachmittags-Doppelstunde -F
  20.03.17 - Nachmittag- Begonnen den Multitimer zu implementieren, Insert-Error gefixed -F
-
+ 27.03.17 - Datenbankzugriff auf SQL-Injections abgesichert,Finale DB Erstellen ,toStringList() erstellt, finale DB erstellt und exportiert -F
 
 
 
 ***************************************
 **************Aufgaben*****************
 ***************************************
-S: Code Optimieren 
-F: Finale DB erstellt
+S: Datenbankzugriff auf SQL-Injections Absichern, beginn Grundfunktion zu programmieren
+F: Finale DB Erstellen, Methode schreiben, welche string in Worte splittet(Rückgabe Liste)
 
 ****************************************
 ************Notizen*********************

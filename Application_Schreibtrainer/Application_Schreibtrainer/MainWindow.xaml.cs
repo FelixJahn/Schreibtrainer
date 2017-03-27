@@ -38,5 +38,9 @@ namespace Application_Schreibtrainer
             Datenbankverbindung d1 = new Datenbankverbindung("127.0.0.1", "test", "root", "");
             d1.Daten("Patrick", "krebs", 11, 100);
         }
+        private List<string> toStringList(string s)
+        {
+            return new List<string>();
+        }
     }
 }

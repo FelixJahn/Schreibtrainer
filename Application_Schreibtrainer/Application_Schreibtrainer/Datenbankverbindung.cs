@@ -92,5 +92,9 @@ namespace Application_Schreibtrainer
                 throw new Exception("Funktioniert nicht");
             }
         }
+        private List<string> toStringList(string s)
+        {
+            return new List<string>();
+        }
     }
 }

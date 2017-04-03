@@ -25,6 +25,8 @@ namespace Application_Schreibtrainer
         public MainWindow()
         {
             InitializeComponent();
+            //foreach (string w )
+            
         }
 
         private void buttonRefresh_Click(object sender, RoutedEventArgs e)
@@ -32,7 +34,7 @@ namespace Application_Schreibtrainer
             //Datenbankverbindung d1 = new Datenbankverbindung("127.0.0.1", "test", "root", "");
             //d1.Daten("Patrick", "krebs", 11, 100);
             Datenbankverbindung d2 = new Datenbankverbindung(textBoxSIP.Text, textBoxDB.Text, textBoxUID.Text, "");
-            int zeit= 3;
+            int zeit = 3;
             d2.Daten(textBoxName.Text, textBoxKlasse.Text, Convert.ToInt32(textBoxKatalogNR.Text), zeit );
 
         }
@@ -44,7 +46,10 @@ namespace Application_Schreibtrainer
         private List<string> toStringList(string s)
         {
             return s.Split(' ').ToList<string>();
-
+            
+                                                      
         }
+        
+                               
     }
 }

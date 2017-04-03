@@ -39,20 +39,9 @@ namespace Application_Schreibtrainer
             Datenbank = datenbank;
             Passwort = passwort;
 
-
-            
-            connString = "Server=" + serverip + ";database=" + datenbank + ";uid=" + userid + ";pwd=" + passwort;
-
-            userid = UserID;
-            datenbank = Datenbank;
-            passwort = Passwort;
-
-            //connString = "Server=$serverip + "
-                                                                                                                
                                                                                                           
-            connString = $"Server={serverip};uid={userid};database={datenbank};pwd={passwort}";                       
-            //"Server:"+serverip + ";uid:" + userid + ";database:" + datenbank + ";pwd:" + passwort;
-            
+            connString = $"Server={serverip};uid={userid};database={datenbank};pwd={passwort}";
+
             Verbindung(connString);
         }
         public void Daten(string vorname, string klasse, int katalognummer, float zeit)

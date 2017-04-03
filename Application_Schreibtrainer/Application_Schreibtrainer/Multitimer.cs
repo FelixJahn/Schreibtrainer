@@ -14,6 +14,8 @@ namespace Application_Schreibtrainer
         private int countdown { get; set; }
         public double WordsPerMinute { get; set; }
 
+        
+
         public Multitimer(int s)
         {
             Startwert = s;

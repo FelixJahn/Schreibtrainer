@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Application_Schreibtrainer"
         mc:Ignorable="d"
-        Title="Schreibtrainer" Height="486.146" Width="772.741" Loaded="Window_Loaded">
+        Title="Schreibtrainer" Height="486.146" Width="772.741" Loaded="Window_Loaded" >
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="634*"/>
@@ -16,11 +16,10 @@
             <RowDefinition Height="0*"/>
         </Grid.RowDefinitions>
         <TextBox x:Name="textBoxVorlage" Margin="10,10,45.7,256.8" TextWrapping="Wrap"/>
-        <TextBox x:Name="textBoxInput" Margin="10,0,45.7,214.8" TextWrapping="Wrap" Height="23" VerticalAlignment="Bottom"/>
+        <TextBox x:Name="textBoxInput" Margin="10,0,45.7,214.8" TextWrapping="Wrap" Height="23" VerticalAlignment="Bottom" TextChanged="textBoxInput_TextChanged" KeyUp="textBoxInput_KeyUp"/>
 
         <ListBox x:Name="listBoxDaten" Margin="0,10,10.4,214.8" HorizontalAlignment="Right" Width="136" Grid.ColumnSpan="2"/>
         <Button x:Name="buttonRefresh" Content="Refresh" Margin="0,0,75.7,148.8" Height="39" VerticalAlignment="Bottom" Click="buttonRefresh_Click" HorizontalAlignment="Right" Width="75"/>
-        <CheckBox x:Name="checkBoxTestMode" Content="Test mode" Margin="484,0,0,2.8" HorizontalAlignment="Left" Width="74" Height="24" VerticalAlignment="Bottom"/>
 
         <Label x:Name="label_Copy5" Content="Vorlage:" Margin="10,0,0,155.8" Height="26" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="76"/>
 
@@ -38,10 +37,12 @@
         <TextBox x:Name="textBoxKlasse" Margin="620,0,0,75.8" TextWrapping="Wrap" Height="23" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="119" Grid.ColumnSpan="2"/>
         <TextBox x:Name="textBoxKatalogNR" Margin="620,0,0,44.8" TextWrapping="Wrap" Height="23" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="119" Grid.ColumnSpan="2"/>
 
-        <Label x:Name="labelTime" Content="Time" Margin="0,0,10.4,143.8" Height="38" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="136" Grid.ColumnSpan="2"/>
+        <Label x:Name="labelTime" Content="Time" Margin="0,0,10,144" Height="38" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="135" Grid.ColumnSpan="2"/>
         <Label x:Name="label1" Content="Server IP:" Margin="65,0,509.7,67.8" VerticalAlignment="Bottom"/>
-        <Button x:Name="btnOFD" Content="Datei auswählen" HorizontalAlignment="Left" Margin="31,308,0,0" VerticalAlignment="Top" Width="109" Height="25"/>
-        <Label x:Name="labelFD" Content="" HorizontalAlignment="Left" Margin="163,307,0,0" VerticalAlignment="Top" Width="49"/>
+        <Button x:Name="btnOFD" Content="Datei auswählen" HorizontalAlignment="Left" Margin="13,294,0,0" VerticalAlignment="Top" Width="109" Height="25" Click="btnOFD_Click"/>
+        <Label x:Name="labelFD" Content="" HorizontalAlignment="Left" Margin="163,307,0,0" VerticalAlignment="Top" Width="393"/>
+        <Button x:Name="buttonTestMode" Content="Test Modus" HorizontalAlignment="Left" Margin="32,318,0,0" VerticalAlignment="Top" Width="75" Grid.Column="1" Click="buttonTestMode_Click"/>
+        <Label x:Name="labelTestMode" Content="" HorizontalAlignment="Left" Margin="523,319,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="136"/>
     </Grid>
 
 

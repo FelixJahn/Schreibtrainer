@@ -23,7 +23,7 @@ namespace Application_Schreibtrainer
         public string Klasse { get; set; }
         public int Katalognummer { get; set; }
 
-        public float Zeit { get; set; }
+        public double Zeit { get; set; }
         
         //Konstruktor machen der die props einliest und speichert
         //private Methode die einen con string generiert und sich gleich versucht zu verbinden(gleich im konstruktor aufrufen)
@@ -44,7 +44,7 @@ namespace Application_Schreibtrainer
 
             Verbindung(connString);
         }
-        public void Daten(string vorname, string klasse, int katalognummer, float zeit)
+        public void Daten(string vorname, string klasse, int katalognummer, double zeit)
 
         {
             Vorname = vorname;
@@ -57,13 +57,13 @@ namespace Application_Schreibtrainer
             try
             {
                 conn.Open();
-                var cmd =new MySqlCommand("Insert into testuser values('name=@name, klasse=@klasse, katalognummer=@katalognummer, zeit=@zeit')", conn);
+                var cmd =new MySqlCommand("Insert into testuser values('name=@name, klasse=@klasse, ktlgnr=@ktlgnr, zeit=@zeit')", conn);
 
 
                 cmd.Parameters.AddWithValue("@zeit", zeit);
                 cmd.Parameters.AddWithValue("@name", vorname);
                 cmd.Parameters.AddWithValue("@klasse", klasse);
-                cmd.Parameters.AddWithValue("@katalognummer", katalognummer);
+                cmd.Parameters.AddWithValue("@ktlgnr", katalognummer);
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("stophere");
 
@@ -75,6 +75,7 @@ namespace Application_Schreibtrainer
             finally
             {
                 conn.Close();
+                MessageBox.Show("Datenbankverbindung geschlossen, Daten gesendet!");
             }
         }
         private void Verbindung(string ConnString)
@@ -84,11 +85,11 @@ namespace Application_Schreibtrainer
             try
             {
                 conn.Open();
-                MessageBox.Show("Es funkt");
+                MessageBox.Show("Datenbankverbindung Hergestellt");
             }
             catch
             {
-                    throw new Exception("Funktioniert nicht");
+                MessageBox.Show("Datenbankverbindung nicht hergestellt!");
             }
         }
     }

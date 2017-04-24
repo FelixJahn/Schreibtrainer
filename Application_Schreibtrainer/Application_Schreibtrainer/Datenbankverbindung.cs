@@ -65,8 +65,6 @@ namespace Application_Schreibtrainer
                 cmd.Parameters.AddWithValue("@klasse", klasse);
                 cmd.Parameters.AddWithValue("@ktlgnr", katalognummer);
                 cmd.ExecuteNonQuery();
-                MessageBox.Show("stophere");
-
             }
             catch(Exception ex)
             {

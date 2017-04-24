@@ -59,20 +59,37 @@ namespace Application_Schreibtrainer
             //Datenbankverbindung d2 = new Datenbankverbindung(textBoxSIP.Text, textBoxDB.Text, textBoxUID.Text, "");
             //int zeit = 3;
             //d2.Daten(textBoxName.Text, textBoxKlasse.Text, Convert.ToInt32(textBoxKatalogNR.Text), zeit);
+            refresh();
+        }
+        private void refresh()
+        {
+            this.Dispatcher.Invoke(() =>
+            {
+                textBoxInput.IsReadOnly = false;
+                textBoxVorlage.Text = "";
+                labelTime.Content = 60;
+                listBoxDaten.Items.Clear();
+                ListOfWords.Clear();
+            });
             aTimer.Stop();
             fehler = 0;
             countdown = 60;
             TextChangedtheFirstTime = true;
-            labelTime.Content = 60;
-            listBoxDaten.Items.Clear();
-            ListOfWords.Clear();
-            foreach (string item in backuplow)
-            {
-                ListOfWords.Add(item);
-            }
-            showListOfWords();
-        }
 
+
+
+            showListOfWords();
+            try
+            {
+                foreach (string item in backuplow)
+                {
+                    ListOfWords.Add(item);
+                }
+            }
+            catch (Exception)
+            {
+            }
+        }
         private void decrementCountdown()
         {
             if (countdown >= 1)
@@ -87,16 +104,17 @@ namespace Application_Schreibtrainer
             else
             {
                 aTimer.Stop();
-                MessageBox.Show("Countdown abgelaufen!", "Ende", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Countdown abgelaufen!" + Environment.NewLine + "Wörter geschrieben: " + index + Environment.NewLine + "Fehler: " + fehler, "Ende", MessageBoxButton.OK, MessageBoxImage.Information);
                 this.Dispatcher.Invoke(() =>
                 {
                     textBoxInput.IsReadOnly = true;
-                
-                if (TestMode)
-                {
-                    d.Daten(textBoxName.Text, textBoxKlasse.Text, Convert.ToInt32(textBoxKatalogNR.Text), index);//code optimieren für andere Werte als 60s//
-                }
+
+                    if (TestMode)
+                    {
+                        d.Daten(textBoxName.Text, textBoxKlasse.Text, Convert.ToInt32(textBoxKatalogNR.Text), index);//code optimieren für andere Werte als 60s//
+                    }
                 });
+                refresh();
             }
         }
         private List<string> toStringList(string s)
@@ -128,6 +146,7 @@ namespace Application_Schreibtrainer
 
         private void btnOFD_Click(object sender, RoutedEventArgs e)
         {
+            refresh();
             OpenFileDialog ofd1 = new OpenFileDialog();
             ofd1.Filter = "txt files (*.txt)|*.txt";
 
@@ -147,7 +166,7 @@ namespace Application_Schreibtrainer
         {
             if (TextChangedtheFirstTime)
             {
-                if (!(ListOfWords.Count<1))
+                if (!(ListOfWords.Count < 1))
                 {
                     aTimer.Start();
                     TextChangedtheFirstTime = false;
@@ -170,7 +189,7 @@ namespace Application_Schreibtrainer
 
             if (e.Key == Key.Space)
             {
-                if (ListOfWords.Count<2)
+                if (ListOfWords.Count < 2)
                 {
                     foreach (string item in backuplow)
                     {

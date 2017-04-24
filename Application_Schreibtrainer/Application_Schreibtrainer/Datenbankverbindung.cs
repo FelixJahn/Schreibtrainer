@@ -57,7 +57,7 @@ namespace Application_Schreibtrainer
             try
             {
                 conn.Open();
-                var cmd =new MySqlCommand("Insert into testuser values('name=@name, klasse=@klasse, ktlgnr=@ktlgnr, zeit=@zeit')", conn);
+                MySqlCommand cmd =new MySqlCommand("Insert into data values(@name, @klasse, @ktlgnr, @zeit, null)", conn);
 
 
                 cmd.Parameters.AddWithValue("@zeit", zeit);
@@ -68,9 +68,10 @@ namespace Application_Schreibtrainer
                 MessageBox.Show("stophere");
 
             }
-            catch
+            catch(Exception ex)
             {
-                MessageBox.Show("Statement ist falsch");
+                
+                MessageBox.Show(ex.Message);
             }
             finally
             {

@@ -91,11 +91,12 @@ namespace Application_Schreibtrainer
                 this.Dispatcher.Invoke(() =>
                 {
                     textBoxInput.IsReadOnly = true;
-                });
+                
                 if (TestMode)
                 {
                     d.Daten(textBoxName.Text, textBoxKlasse.Text, Convert.ToInt32(textBoxKatalogNR.Text), index);//code optimieren für andere Werte als 60s//
                 }
+                });
             }
         }
         private List<string> toStringList(string s)

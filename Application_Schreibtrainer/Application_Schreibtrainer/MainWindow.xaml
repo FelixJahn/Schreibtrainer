@@ -15,7 +15,7 @@
             <RowDefinition/>
             <RowDefinition Height="0*"/>
         </Grid.RowDefinitions>
-        <TextBox x:Name="textBoxVorlage" Margin="10,10,45.7,256.8" TextWrapping="Wrap"/>
+        <TextBox x:Name="textBoxVorlage" Margin="10,10,45.7,256.8" TextWrapping="Wrap" FontSize="16" FontWeight="Bold"/>
         <TextBox x:Name="textBoxInput" Margin="10,0,45.7,214.8" TextWrapping="Wrap" Height="23" VerticalAlignment="Bottom" TextChanged="textBoxInput_TextChanged" KeyUp="textBoxInput_KeyUp"/>
 
         <ListBox x:Name="listBoxDaten" Margin="0,10,10.4,214.8" HorizontalAlignment="Right" Width="136" Grid.ColumnSpan="2"/>

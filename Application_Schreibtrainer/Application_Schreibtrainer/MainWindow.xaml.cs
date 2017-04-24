@@ -35,6 +35,7 @@ namespace Application_Schreibtrainer
         private bool TestMode = false;
         private int fehler = 0;
         Datenbankverbindung d;
+        private List<string> backuplow;
         public MainWindow()
         {
             InitializeComponent();
@@ -47,7 +48,6 @@ namespace Application_Schreibtrainer
             textBoxVorlage.IsReadOnly = true;
             aTimer.Elapsed += OnTimedEvent;
             aTimer.Stop();
-
         }
         private void OnTimedEvent(Object source, ElapsedEventArgs e)
         {
@@ -65,6 +65,12 @@ namespace Application_Schreibtrainer
             TextChangedtheFirstTime = true;
             labelTime.Content = 60;
             listBoxDaten.Items.Clear();
+            ListOfWords.Clear();
+            foreach (string item in backuplow)
+            {
+                ListOfWords.Add(item);
+            }
+            showListOfWords();
         }
 
         private void decrementCountdown()
@@ -140,19 +146,43 @@ namespace Application_Schreibtrainer
         {
             if (TextChangedtheFirstTime)
             {
-                aTimer.Start();
-                TextChangedtheFirstTime = false;
+                if (!(ListOfWords.Count<1))
+                {
+                    aTimer.Start();
+                    TextChangedtheFirstTime = false;
+                    backuplow = new List<string>();
+                    foreach (string item in ListOfWords)
+                    {
+                        backuplow.Add(item);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Text muss vorhanden sein!");
+                    textBoxInput.Text = "";
+                }
 
             }
         }
-
         private void textBoxInput_KeyUp(object sender, KeyEventArgs e)
         {
+
             if (e.Key == Key.Space)
             {
-                string s = textBoxInput.Text.Trim();
-                if (s == ListOfWords[index])
+                if (ListOfWords.Count<2)
                 {
+                    foreach (string item in backuplow)
+                    {
+                        ListOfWords.Add(item);
+                        showListOfWords();
+                    }
+                }
+                string s = textBoxInput.Text.Trim();
+                if (s == ListOfWords[0])
+                {
+                    ListOfWords.RemoveAt(0);
+                    textBoxVorlage.Text = "";
+                    showListOfWords();
                     textBoxInput.Text = "";
                     index++;
 
@@ -213,7 +243,7 @@ namespace Application_Schreibtrainer
             }
         }
 
-	private void showListOfWords()
+        private void showListOfWords()
         {
             foreach (string s in ListOfWords)
             {

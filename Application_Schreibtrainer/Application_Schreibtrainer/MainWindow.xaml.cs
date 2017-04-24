@@ -183,5 +183,32 @@ namespace Application_Schreibtrainer
 
             }
         }
+
+        private void outputListBox(double wpm, int wordsWritten)
+        {
+            listBoxDaten.Items.Clear();
+            listBoxDaten.Items.Add("WPM: " + wpm);
+            listBoxDaten.Items.Add("Geschrieben :" + wordsWritten);
+        }
+
+	private double calculateWPM(double time, double words)
+        {
+            if (time == 0)
+            {
+                return 60 * words;
+            }
+            else
+            {
+                return (60 / time) * words;
+            }
+        }
+
+	private void showListOfWords()
+        {
+            foreach (string s in ListOfWords)
+            {
+                textBoxVorlage.Text += s + " ";
+            }
+        }
     }
 }

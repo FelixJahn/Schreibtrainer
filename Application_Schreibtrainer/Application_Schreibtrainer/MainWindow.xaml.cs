@@ -33,6 +33,7 @@ namespace Application_Schreibtrainer
         private int index = 0;
         private bool TextChangedtheFirstTime = true;
         private bool TestMode = false;
+        private int fehler = 0;
         Datenbankverbindung d;
         public MainWindow()
         {
@@ -59,6 +60,7 @@ namespace Application_Schreibtrainer
             //int zeit = 3;
             //d2.Daten(textBoxName.Text, textBoxKlasse.Text, Convert.ToInt32(textBoxKatalogNR.Text), zeit);
             aTimer.Stop();
+            fehler = 0;
             countdown = 60;
             TextChangedtheFirstTime = true;
             labelTime.Content = 60;
@@ -154,7 +156,13 @@ namespace Application_Schreibtrainer
                     textBoxInput.Text = "";
                     index++;
 
-                    outputListBox(calculateWPM(Convert.ToDouble(60 - countdown), index), index);
+                    outputListBox(calculateWPM(Convert.ToDouble(60 - countdown), index), index, fehler);
+                }
+                else
+                {
+                    fehler++;
+                    outputListBox(calculateWPM(Convert.ToDouble(60 - countdown), index), index, fehler);
+
                 }
             }
         }
@@ -184,14 +192,16 @@ namespace Application_Schreibtrainer
             }
         }
 
-        private void outputListBox(double wpm, int wordsWritten)
+        private void outputListBox(double wpm, int wordsWritten, int f)
         {
             listBoxDaten.Items.Clear();
             listBoxDaten.Items.Add("WPM: " + wpm);
             listBoxDaten.Items.Add("Geschrieben :" + wordsWritten);
+            listBoxDaten.Items.Add("Fehler :" + f);
+
         }
 
-	private double calculateWPM(double time, double words)
+        private double calculateWPM(double time, double words)
         {
             if (time == 0)
             {
